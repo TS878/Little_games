@@ -18,22 +18,22 @@ O   |
     |
     ===''', '''
 +---+
-O   |
+ O   |
 /|   |
     |
     ===''', '''
 +---+
-O   |
+ O   |
 /|\  |
     |
     ===''', '''
 +---+
-O   |
+ O   |
 /|\  |
 /    |
     ===''', '''
 +---+
-O   |
+ O   |
 /|\  |
 / \  |
       ===''']
@@ -43,13 +43,12 @@ words = '''ant baboon badger bat bear beaver camel cat clam cobra cougar
        lion lizard llama mole monkey moose mouse mule newt otter owl panda
        parrot pigeon python rabbit ram rat raven rhino salmon seal shark sheep
        skunk sloth snake spider stork swan tiger toad trout turkey turtle
-       weasel whale wolf wombat zebra'''.split()
-
+       weasel whale wolf wombat zebra'''.split
 ###Functions###
 def get_random_word(word_list):
     # This function returns a random string from the passed list of strings.
-    word_index = random.randint(0, len(word_list) - 1)
-    return word_list[word_index]
+    word_index = random.choice(word_list)
+    return word_index
 
 def display_board(missed_letters, correct_letters, secret_word):
     print(hangman_pics[len(missed_letters)])
@@ -69,7 +68,6 @@ def display_board(missed_letters, correct_letters, secret_word):
             
     for letter in blanks:
         print(letter, end=' ')
-        print()
                 
 def get_guess(already_guessed):
     #returns the letter the player entered. makes sure the play enters a letter
@@ -130,10 +128,10 @@ while True:
             
     # Ask the player if they want to play again 
     if game_is_done:		
-	        if play_again():		
-	            missed_letters = ''		
-	            correct_letters = ''		
-	            game_is_done = False		
-	            secret_Word = get_random_word(words)		
-	        else:		
-	            break
+        if play_again():		
+            missed_letters = ''		
+            correct_letters = ''		
+            game_is_done = False		
+            secret_Word = get_random_word(words2)		
+        else:		
+            break
