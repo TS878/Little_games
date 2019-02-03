@@ -1,57 +1,72 @@
 ###Imports###
 import random
 ###variables###
-hangman_pics = ['''
-+---+
-        |
-        |
-        |
+HANGMAN_PICS = ['''
+ +---+
+     |
+     |
+     |
     ===''', '''
-    +---+
-    O   |
-    |
-    |
+ +---+
+ O   |
+     |
+     |
     ===''', '''
-+---+
-O   |
-|   |
-    |
+ +---+
+ O   |
+ |   |
+     |
     ===''', '''
-+---+
+ +---+
  O   |
 /|   |
-    |
+     |
     ===''', '''
-+---+
+ +---+
  O   |
 /|\  |
-    |
+     |
     ===''', '''
-+---+
+ +---+
  O   |
 /|\  |
 /    |
     ===''', '''
-+---+
+ +---+
  O   |
 /|\  |
 / \  |
-      ===''']
+    ===''','''
+ +---+
+[O   |
+/|\  |
+/ \  |
+    ===''', '''
+ +---+
+[O]  |
+/|\  |
+/ \  |
+    ===''']
 
-words = '''ant baboon badger bat bear beaver camel cat clam cobra cougar
-       coyote crow deer dog donkey duck eagle ferret fox frog goat goose hawk
-       lion lizard llama mole monkey moose mouse mule newt otter owl panda
-       parrot pigeon python rabbit ram rat raven rhino salmon seal shark sheep
-       skunk sloth snake spider stork swan tiger toad trout turkey turtle
-       weasel whale wolf wombat zebra'''.split
+words = {
+'animals':'''ant baboon badger bat bear beaver camel cat clam cobra 
+cougarcoyote crow deer dog donkey duck eagle ferret fox frog goat goose 
+hawk lion lizard llama mole monkey moose mouse mule newt otter owl 
+panda parrot pigeon python rabbit ram rat raven rhino salmon seal 
+shark sheep skunk sloth snake spider stork swan tiger toad trout 
+turkey turtle weasel whale wolf wombat zebra'''.split(),
+
+'color':'''red orange yellow green blue indigo violet white black 
+brown'''.split(),}
 ###Functions###
 def get_random_word(word_list):
     # This function returns a random string from the passed list of strings.
-    word_index = random.choice(word_list)
-    return word_index
+    word_index = random.randint(0, len(word_list)-1)
+
+    return word_list[word_index]
 
 def display_board(missed_letters, correct_letters, secret_word):
-    print(hangman_pics[len(missed_letters)])
+    print(HANGMAN_PICS[len(missed_letters)])
     print()
     
     print("Missed letters:", end=' ')
@@ -92,6 +107,24 @@ def play_again():
     
 ###Main Program###
 print('H A N G M A N')
+#This will let the user select a dificulty
+difficulty = input('\n1.Beginer\n2.Normal\n3.Hard\n')
+if difficulty == '1':
+    words = words['color']
+    print(len(HANGMAN_PICS))
+    print('The word is a color')
+elif difficulty == '2':
+    #Normal mode have eight guesses until you lose
+    words = words['animals']
+elif difficulty == '3':
+    #Hard mode six wrong guesses until you lose.
+    words = words['animals']
+    del HANGMAN_PICS[8]
+    del HANGMAN_PICS[7]
+
+
+
+
 missed_letters = ''
 correct_letters = ''
 secret_word = get_random_word(words)
@@ -117,7 +150,7 @@ while True:
         missed_letters = missed_letters + guess
         
         #check if player has guessed to many times and lost.
-        if len(missed_letters) == len(hangman_pics) - 1:
+        if len(missed_letters) == len(HANGMAN_PICS) - 1:
             display_board(missed_letters, correct_letters, secret_word)
             
             print("You have run out of guesses.\nAfter " +
@@ -132,6 +165,6 @@ while True:
             missed_letters = ''		
             correct_letters = ''		
             game_is_done = False		
-            secret_Word = get_random_word(words2)		
+            secret_Word = get_random_word(words)		
         else:		
             break
