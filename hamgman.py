@@ -72,8 +72,8 @@ def display_board(missed_letters, correct_letters, secret_word):
     print("Missed letters:", end=' ')
     for letter in missed_letters:
         print(letter,end=' ')
-        print()
         
+    print('\n')   
     blanks = '_' * len(secret_word)
     for i in range(len(secret_word)):
     #replace blanks with correctly guessed letters
@@ -108,19 +108,25 @@ def play_again():
 ###Main Program###
 print('H A N G M A N')
 #This will let the user select a dificulty
-difficulty = input('\n1.Beginer\n2.Normal\n3.Hard\n')
-if difficulty == '1':
-    words = words['color']
-    print(len(HANGMAN_PICS))
-    print('The word is a color')
-elif difficulty == '2':
-    #Normal mode have eight guesses until you lose
-    words = words['animals']
-elif difficulty == '3':
-    #Hard mode six wrong guesses until you lose.
-    words = words['animals']
-    del HANGMAN_PICS[8]
-    del HANGMAN_PICS[7]
+while True:
+    difficulty = input('\nE-Beginer\nN-Normal\nH-Hard\n')
+    if difficulty.upper().startswith('E'):
+        words = words['color']
+        print(len(HANGMAN_PICS))
+        print('The word is a color')
+        break
+    elif difficulty.upper().startswith('N'):
+        #Normal mode have eight guesses until you lose
+        words = words['animals']
+        break
+    elif difficulty.upper().startswith('H'):
+        #Hard mode six wrong guesses until you lose.
+        words = words['animals']
+        del HANGMAN_PICS[8]
+        del HANGMAN_PICS[7]
+        break
+    else:
+        print('Please select a difficulty by typing the first letter.')
 
 
 
@@ -143,10 +149,11 @@ while True:
         if secret_word[i] not in correct_letters:
             found_all_letters = False
             break
+            
     if found_all_letters:
         print("Yes the secret word is %s! You have Won" % secret_word)
         game_is_done = True
-    else:
+    elif guess not in correct_letters:
         missed_letters = missed_letters + guess
         
         #check if player has guessed to many times and lost.
