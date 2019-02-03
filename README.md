@@ -5,11 +5,11 @@ List of games
 
 2.Hangman
 
-  MAGIC 8-BALL 
+#  MAGIC 8-BALL 
   
 The Magic 8-ball is a very simpile program, you tell it your name and then ask a question
 
-  HANGMAN  
+#  HANGMAN  
 
 The Hangman game has a few options as far as difficulties are concerned
 
