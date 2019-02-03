@@ -1,8 +1,8 @@
 # Little_games
 '''
 List of games
-1.Magic 8-ball
-2.Hangman
+\n1.Magic 8-ball
+\n2.Hangman
 '''
 
 ###  MAGIC 8-BALL  ###
