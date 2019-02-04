@@ -30,4 +30,4 @@ The TicTacToe game is very simple to play all you have to do is tell the compute
 
 7|8|9\
 4|5|6\
-1|2|3\
+1|2|3
