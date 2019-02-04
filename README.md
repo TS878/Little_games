@@ -28,6 +28,8 @@ Hard -This difficulty gives you six wrong guesses before you lose, you don't get
 
 The TicTacToe game is very simple to play all you have to do is tell the computer wether you want to be X or O. It decides randomly who goes first, once it's your turn you type in the number corisponding to the spot you wish to use. The board looks like this.
 
-7|8|9\n
+7|8|9
+
 4|5|6
+
 1|2|3
