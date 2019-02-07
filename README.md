@@ -9,6 +9,8 @@ List of games
 
 4.Bagels
 
+5.Sonar
+
 #  MAGIC 8-BALL 
   
 The Magic 8-ball is a very simpile program, you tell it your name and then ask a question
@@ -42,3 +44,6 @@ Bagels- None of the numbers are correct.
 Pico- One of the digits is correct but in the wrong position.
 
 Fermi- One of the digits is correct and in the right position.
+
+#  Sonar
+Sonar - you are the captain of the Simon, a treasure-hunting ship. your current mission is to use sonar devices to find three sunken treasure chest at the bottom of the ocean. But you only have cheap sonar that finds the distance not direction.
