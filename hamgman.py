@@ -2,12 +2,14 @@
 import random
 ###variables###
 HANGMAN_PICS = ['''
- +---+
+  ___
+ +   +
      |
      |
      |
     ===''', '''
- +---+
+  ___  
+ +   +
  O   |
      |
      |
@@ -61,15 +63,14 @@ brown'''.split(),}
 ###Functions###
 def get_random_word(word_list):
     # This function returns a random string from the passed list of strings.
-    word_index = random.randint(0, len(word_list)-1)
+    return random.choice(word_list)
 
-    return word_list[word_index]
 
 def display_board(missed_letters, correct_letters, secret_word):
     print(HANGMAN_PICS[len(missed_letters)])
     print()
     
-    print("Missed letters:", end=' ')
+    print("Missed letters:", end = ' ')
     for letter in missed_letters:
         print(letter,end=' ')
         
